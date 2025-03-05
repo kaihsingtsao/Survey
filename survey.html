@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秦畅畅大笨蛋</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; }
+        label { display: block; margin-top: 10px; }
+        button { margin-top: 15px; padding: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>问卷调查</h2>
+    
+    <p>请听以下音频，然后回答问题：</p>
+    <audio controls>
+        <source src="C:\Users\51344\Desktop\Beethoven-1.wav" type="audio/wav">
+        您的浏览器不支持音频播放。
+    </audio>
+    
+    <form id="survey-form">
+        <label for="name">您的姓名：</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label>您喜欢这个音频吗？</label>
+        <input type="radio" id="like_yes" name="like" value="yes"> <label for="like_yes">是</label>
+        <input type="radio" id="like_no" name="like" value="no"> <label for="like_no">否</label>
+        
+        <label for="comments">您的反馈：</label>
+        <textarea id="comments" name="comments" rows="4"></textarea>
+        
+        <button type="submit">提交</button>
+    </form>
+    
+    <script>
+        document.getElementById("survey-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // 阻止默认提交
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            console.log("用户提交的数据：", data);
+            alert("感谢您的参与！");
+        });
+    </script>
+</body>
+</html>
